@@ -1,6 +1,6 @@
-import 'package:breathing_app/routs/breathing.dart';
-import 'package:breathing_app/routs/home.dart';
-import 'package:breathing_app/routs/stats.dart';
+import 'package:breathing_app/routes/breathing.dart';
+import 'package:breathing_app/routes/home.dart';
+import 'package:breathing_app/routes/stats.dart';
 import 'package:flutter/material.dart';
 
 void main() {

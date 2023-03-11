@@ -1,3 +1,4 @@
+import 'package:breathing_app/data/input_controller.dart';
 import 'package:breathing_app/widgets/number_input_field.dart';
 import 'package:flutter/material.dart';
 
@@ -22,29 +23,47 @@ class _BreathingConfigFormState extends State<BreathingConfigForm> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                NumberInputField(labelText: 'Breaths per round *'),
-                NumberInputField(labelText: 'Number of rounds *'),
+              children: [
+                NumberInputField(
+                  labelText: 'Breaths per round *',
+                  controller: breathController,
+                ),
+                NumberInputField(
+                  labelText: 'Number of rounds *',
+                  controller: roundController,
+                ),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                NumberInputField(labelText: 'Seconds per inhale *'),
-                NumberInputField(labelText: 'Seconds per exhale *'),
+              children: [
+                NumberInputField(
+                  labelText: 'Seconds per inhale *',
+                  controller: inhaleController,
+                ),
+                NumberInputField(
+                  labelText: 'Seconds per exhale *',
+                  controller: exhaleController,
+                ),
               ],
             ),
             ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Processing Data'),
-                      ),
-                    );
-                  }
-                },
-                child: const Text('dddd')),
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  Navigator.pushNamed(
+                    context,
+                    '/breathing',
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Please chek your inputs'),
+                    ),
+                  );
+                }
+              },
+              child: const Text('Start Session'),
+            ),
           ],
         ),
       ),
