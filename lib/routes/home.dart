@@ -10,7 +10,12 @@ class HomeRoute extends StatelessWidget {
       body: Center(
         child: Column(
           children: const [
-            SafeArea(child: Text('Breathify')),
+            Padding(
+              padding: EdgeInsets.only(bottom: 100.0),
+              child: SafeArea(
+                child: Text('Breathify'),
+              ),
+            ),
             BreathingConfigForm(),
           ],
         ),

@@ -19,17 +19,17 @@ class _BreathingConfigFormState extends State<BreathingConfigForm> {
       child: Form(
         key: _formKey,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 NumberInputField(
-                  labelText: 'Breaths per round *',
+                  labelText: 'Breaths per round',
                   controller: breathController,
                 ),
                 NumberInputField(
-                  labelText: 'Number of rounds *',
+                  labelText: 'Number of rounds',
                   controller: roundController,
                 ),
               ],
@@ -38,12 +38,25 @@ class _BreathingConfigFormState extends State<BreathingConfigForm> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 NumberInputField(
-                  labelText: 'Seconds per inhale *',
+                  labelText: 'Seconds per inhale',
                   controller: inhaleController,
                 ),
                 NumberInputField(
-                  labelText: 'Seconds per exhale *',
+                  labelText: 'Seconds per exhale',
                   controller: exhaleController,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                NumberInputField(
+                  labelText: 'Hold after inhale in seconds',
+                  controller: inhaleHoldController,
+                ),
+                NumberInputField(
+                  labelText: 'Hold after exhale in seconds',
+                  controller: exhaleHoldController,
                 ),
               ],
             ),

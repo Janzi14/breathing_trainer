@@ -5,3 +5,7 @@ final TextEditingController breathController =
 final TextEditingController roundController = TextEditingController(text: '4');
 final TextEditingController inhaleController = TextEditingController(text: '2');
 final TextEditingController exhaleController = TextEditingController(text: '2');
+final TextEditingController inhaleHoldController =
+    TextEditingController(text: '0');
+final TextEditingController exhaleHoldController =
+    TextEditingController(text: '0');
