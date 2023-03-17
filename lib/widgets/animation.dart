@@ -1,3 +1,4 @@
+import 'package:breathing_app/data/input_controller.dart';
 import 'package:flutter/material.dart';
 
 extension on AnimationController {
@@ -5,13 +6,25 @@ extension on AnimationController {
     var count = 0;
     addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        BreathingAnimation.isInhale = false;
-        reverse();
+        BreathingAnimation.isHold = true;
+        Future.delayed(Duration(seconds: int.parse(inhaleHoldController.text)),
+            () {
+          BreathingAnimation.isInhale = false;
+          BreathingAnimation.isHold = false;
+          reverse();
+        });
       } else if (status == AnimationStatus.dismissed) {
-        if (++count < times) {
-          BreathingAnimation.isInhale = true;
-          forward();
-        }
+        BreathingAnimation.isHold = true;
+        Future.delayed(
+          Duration(seconds: int.parse(exhaleHoldController.text)),
+          () {
+            if (++count < times) {
+              BreathingAnimation.isInhale = true;
+              BreathingAnimation.isHold = false;
+              forward();
+            }
+          },
+        );
       }
     });
   }

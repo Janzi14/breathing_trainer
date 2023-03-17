@@ -19,7 +19,12 @@ class _BreathingRouteState extends State<BreathingRoute>
     super.initState();
     BreathingAnimation.textController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: int.parse(inhaleController.text)),
+      duration: Duration(
+        seconds: int.parse(inhaleController.text),
+      ),
+      reverseDuration: Duration(
+        seconds: int.parse(exhaleController.text),
+      ),
     );
     BreathingAnimation.textController.addListener(
       () {
@@ -47,7 +52,11 @@ class _BreathingRouteState extends State<BreathingRoute>
           children: [
             SafeArea(child: Text('Round $round')),
             Text(
-              BreathingAnimation.isInhale ? 'IN' : 'OUT',
+              BreathingAnimation.isHold
+                  ? 'HOLD'
+                  : BreathingAnimation.isInhale
+                      ? 'IN'
+                      : 'OUT',
               style: BreathingAnimation.smallTextSTyle,
             ),
             ElevatedButton(
