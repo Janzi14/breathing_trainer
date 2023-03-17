@@ -9,14 +9,17 @@ class HomeRoute extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
-          children: const [
+          children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 100.0),
+              padding: const EdgeInsets.only(bottom: 100.0),
               child: SafeArea(
-                child: Text('Breathify'),
+                child: Text(
+                  'Breathify',
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
               ),
             ),
-            BreathingConfigForm(),
+            const BreathingConfigForm(),
           ],
         ),
       ),

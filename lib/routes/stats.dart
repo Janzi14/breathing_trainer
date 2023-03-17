@@ -5,9 +5,12 @@ class StatsRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Stats!'),
+        child: Text(
+          'Stats!',
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
       ),
     );
   }

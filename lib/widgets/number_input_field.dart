@@ -21,6 +21,7 @@ class NumberInputField extends StatelessWidget {
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
         decoration: InputDecoration(
           labelText: labelText,
+          labelStyle: Theme.of(context).textTheme.labelSmall,
           floatingLabelAlignment: FloatingLabelAlignment.center,
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(

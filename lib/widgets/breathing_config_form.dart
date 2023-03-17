@@ -51,11 +51,11 @@ class _BreathingConfigFormState extends State<BreathingConfigForm> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 NumberInputField(
-                  labelText: 'Hold after inhale in seconds',
+                  labelText: 'Hold after inhale',
                   controller: inhaleHoldController,
                 ),
                 NumberInputField(
-                  labelText: 'Hold after exhale in seconds',
+                  labelText: 'Hold after exhale',
                   controller: exhaleHoldController,
                 ),
               ],

@@ -50,7 +50,12 @@ class _BreathingRouteState extends State<BreathingRoute>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SafeArea(child: Text('Round $round')),
+            SafeArea(
+              child: Text(
+                'Round $round',
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+            ),
             Text(
               BreathingAnimation.isHold
                   ? 'HOLD'
