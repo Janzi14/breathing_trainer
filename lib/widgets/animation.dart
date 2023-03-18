@@ -6,7 +6,9 @@ extension on AnimationController {
     var count = 0;
     addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        BreathingAnimation.isHold = true;
+        if (int.parse(inhaleHoldController.text) > 0) {
+          BreathingAnimation.isHold = true;
+        }
         Future.delayed(Duration(seconds: int.parse(inhaleHoldController.text)),
             () {
           BreathingAnimation.isInhale = false;
@@ -14,7 +16,9 @@ extension on AnimationController {
           reverse();
         });
       } else if (status == AnimationStatus.dismissed) {
-        BreathingAnimation.isHold = true;
+        if (int.parse(exhaleHoldController.text) > 0) {
+          BreathingAnimation.isHold = true;
+        }
         Future.delayed(
           Duration(seconds: int.parse(exhaleHoldController.text)),
           () {

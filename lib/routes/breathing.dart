@@ -40,6 +40,8 @@ class _BreathingRouteState extends State<BreathingRoute>
   @override
   void dispose() {
     BreathingAnimation.textController.dispose();
+    BreathingAnimation.isInhale = true;
+    BreathingAnimation.isHold = false;
     super.dispose();
   }
 
