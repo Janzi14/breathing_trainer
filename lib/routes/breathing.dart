@@ -66,9 +66,12 @@ class _BreathingRouteState extends State<BreathingRoute>
                       : 'OUT',
               style: BreathingAnimation.smallTextSTyle,
             ),
-            ElevatedButton(
-              onPressed: () => Navigator.popAndPushNamed(context, '/'),
-              child: const Text('Exit'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () => Navigator.popAndPushNamed(context, '/'),
+                child: const Text('Exit'),
+              ),
             ),
           ],
         ),

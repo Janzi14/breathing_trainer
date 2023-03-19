@@ -60,22 +60,25 @@ class _BreathingConfigFormState extends State<BreathingConfigForm> {
                 ),
               ],
             ),
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  Navigator.pushNamed(
-                    context,
-                    '/breathing',
-                  );
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Please chek your inputs'),
-                    ),
-                  );
-                }
-              },
-              child: const Text('Start Session'),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.pushNamed(
+                      context,
+                      '/breathing',
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Please chek your inputs'),
+                      ),
+                    );
+                  }
+                },
+                child: const Text('Start Session'),
+              ),
             ),
           ],
         ),
