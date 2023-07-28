@@ -11,8 +11,6 @@ class BreathingRoute extends StatefulWidget {
 
 class _BreathingRouteState extends State<BreathingRoute>
     with SingleTickerProviderStateMixin {
-  int round = 1;
-  int breath = 1;
 
   @override
   void initState() {
@@ -29,7 +27,7 @@ class _BreathingRouteState extends State<BreathingRoute>
     BreathingAnimation.textController.addListener(
       () {
         setState(() {
-          BreathingAnimation.smallTextSTyle =
+          BreathingAnimation.smallTextStyle =
               BreathingAnimation.bigTextStyle.value;
         });
       },
@@ -54,7 +52,7 @@ class _BreathingRouteState extends State<BreathingRoute>
           children: [
             SafeArea(
               child: Text(
-                'Round $round',
+                'Breath #${BreathingAnimation.breathCount}',
                 style: Theme.of(context).textTheme.titleSmall,
               ),
             ),
@@ -64,7 +62,7 @@ class _BreathingRouteState extends State<BreathingRoute>
                   : BreathingAnimation.isInhale
                       ? 'IN'
                       : 'OUT',
-              style: BreathingAnimation.smallTextSTyle,
+              style: BreathingAnimation.smallTextStyle,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

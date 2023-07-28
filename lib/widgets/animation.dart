@@ -23,6 +23,7 @@ extension on AnimationController {
           Duration(seconds: int.parse(exhaleHoldController.text)),
           () {
             if (++count < times) {
+              BreathingAnimation.breathCount = count + 1;
               BreathingAnimation.isInhale = true;
               BreathingAnimation.isHold = false;
               forward();
@@ -37,15 +38,16 @@ extension on AnimationController {
 class BreathingAnimation {
   static bool isInhale = true;
   static bool isHold = false;
+  static int breathCount = 1;
 
   static late AnimationController textController;
-  static TextStyle smallTextSTyle = const TextStyle(fontSize: 60.0);
+  static TextStyle smallTextStyle = const TextStyle(fontSize: 60.0);
   static late Animation<TextStyle> bigTextStyle;
 
   static void runAnimation(int times) {
     bigTextStyle = textController.drive(
       TextStyleTween(
-        begin: smallTextSTyle,
+        begin: smallTextStyle,
         end: const TextStyle(fontSize: 120.0),
       ),
     );

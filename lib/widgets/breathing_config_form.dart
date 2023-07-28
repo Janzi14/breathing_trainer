@@ -25,12 +25,8 @@ class _BreathingConfigFormState extends State<BreathingConfigForm> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 NumberInputField(
-                  labelText: 'Breaths per round',
+                  labelText: 'Number of Breaths',
                   controller: breathController,
-                ),
-                NumberInputField(
-                  labelText: 'Number of rounds',
-                  controller: roundController,
                 ),
               ],
             ),
