@@ -8,7 +8,7 @@ class BreathingAnimation {
   static late Animation<TextStyle> bigTextStyle; // Animated text style
 
   // Method to run the breathing animation
-  static void runAnimation(int times) {
+  static void runAnimation(int times, BuildContext context) {
     bigTextStyle = textController.drive(
       TextStyleTween(
         begin: smallTextStyle, // Starting text style
@@ -18,6 +18,7 @@ class BreathingAnimation {
     textController.reset(); // Reset the animation
     textController.forward(); // Start the animation
     textController.repeatEx(
-        times: times); // Repeat the animation based on the specified times
+        times: times,
+        context: context); // Repeat the animation based on the specified times
   }
 }

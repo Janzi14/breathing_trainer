@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // Extension method on AnimationController for custom repeating animation logic
 extension RepeatAnimationController on AnimationController {
-  void repeatEx({required int times}) {
+  void repeatEx({required int times, required BuildContext context}) {
     BreathingData breathingData = BreathingData();
     var count = 0; // Counter to keep track of animation repetitions
     addStatusListener((status) {
@@ -40,7 +40,13 @@ extension RepeatAnimationController on AnimationController {
             forward();
           }
         });
+        if (count + 1 >= times) {
+          _navigateToNewRoute(context);
+        }
       }
     });
   }
+
+  void _navigateToNewRoute(BuildContext context) =>
+      Navigator.pushNamed(context, "/completed");
 }

@@ -35,7 +35,7 @@ class _BreathingRouteState extends State<BreathingRoute>
     );
     breathingData.isMounted = true;
     BreathingAnimation.runAnimation(
-        int.parse(breathingData.breathController.text));
+        int.parse(breathingData.breathController.text), context);
   }
 
   @override
@@ -82,7 +82,8 @@ class _BreathingRouteState extends State<BreathingRoute>
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
-                onPressed: () => Navigator.popAndPushNamed(context, '/'),
+                onPressed: () =>
+                    Navigator.popUntil(context, ModalRoute.withName('/')),
                 child: const Text('Exit'),
               ),
             ),

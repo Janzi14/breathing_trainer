@@ -1,6 +1,6 @@
 import 'package:breathing_app/routes/breathing.dart';
+import 'package:breathing_app/routes/completed.dart';
 import 'package:breathing_app/routes/home.dart';
-import 'package:breathing_app/routes/stats.dart';
 import 'package:breathing_app/utils/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class MainApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomeRoute(),
         '/breathing': (context) => const BreathingRoute(),
-        '/stats': (context) => const StatsRoute(),
+        '/completed': (context) => const CompletedRoute(),
       },
     );
   }
