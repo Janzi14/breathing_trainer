@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:breathing_app/widgets/breathing_config_form.dart';
+import 'package:flutter/material.dart';
 
 class HomeRoute extends StatelessWidget {
   const HomeRoute({super.key});
@@ -14,7 +14,7 @@ class HomeRoute extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 100.0),
               child: SafeArea(
                 child: Text(
-                  'Breathify',
+                  'Airly',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),

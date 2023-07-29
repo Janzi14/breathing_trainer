@@ -26,16 +26,16 @@ class CompletedRoute extends StatelessWidget {
                   'Number of Breaths: ${breathingData.breathController.text}',
                 ),
                 Text(
-                  'Seconds per inhale: ${breathingData.breathController.text}',
+                  'Seconds per inhale: ${breathingData.inhaleController.text}',
                 ),
                 Text(
-                  'Seconds per exhale: ${breathingData.breathController.text}',
+                  'Seconds per exhale: ${breathingData.exhaleController.text}',
                 ),
                 Text(
-                  'Hold after inhale: ${breathingData.breathController.text}',
+                  'Hold after inhale: ${breathingData.inhaleHoldController.text}',
                 ),
                 Text(
-                  'Hold after exhale: ${breathingData.breathController.text}',
+                  'Hold after exhale: ${breathingData.exhaleHoldController.text}',
                 ),
               ],
             ),
