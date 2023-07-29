@@ -32,14 +32,17 @@ class _BreathingRouteState extends State<BreathingRoute>
         });
       },
     );
+    BreathingAnimation.isMounted = true;
     BreathingAnimation.runAnimation(int.parse(breathController.text));
   }
 
   @override
   void dispose() {
-    BreathingAnimation.textController.dispose();
     BreathingAnimation.isInhale = true;
     BreathingAnimation.isHold = false;
+    BreathingAnimation.isMounted = false;
+    BreathingAnimation.smallTextStyle = const TextStyle(fontSize: 60.0);
+    BreathingAnimation.textController.dispose();
     super.dispose();
   }
 
