@@ -1,4 +1,4 @@
-import 'package:breathing_app/data/input_controller.dart';
+import 'package:breathing_app/data/breathing_data.dart';
 import 'package:breathing_app/widgets/number_input_field.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +13,8 @@ class BreathingConfigForm extends StatefulWidget {
 
 class _BreathingConfigFormState extends State<BreathingConfigForm> {
   final _formKey = GlobalKey<FormState>();
+  BreathingData breathingData = BreathingData();
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -26,7 +28,7 @@ class _BreathingConfigFormState extends State<BreathingConfigForm> {
               children: [
                 NumberInputField(
                   labelText: 'Number of Breaths',
-                  controller: breathController,
+                  controller: breathingData.breathController,
                 ),
               ],
             ),
@@ -35,11 +37,11 @@ class _BreathingConfigFormState extends State<BreathingConfigForm> {
               children: [
                 NumberInputField(
                   labelText: 'Seconds per inhale',
-                  controller: inhaleController,
+                  controller: breathingData.inhaleController,
                 ),
                 NumberInputField(
                   labelText: 'Seconds per exhale',
-                  controller: exhaleController,
+                  controller: breathingData.exhaleController,
                 ),
               ],
             ),
@@ -48,11 +50,11 @@ class _BreathingConfigFormState extends State<BreathingConfigForm> {
               children: [
                 NumberInputField(
                   labelText: 'Hold after inhale',
-                  controller: inhaleHoldController,
+                  controller: breathingData.inhaleHoldController,
                 ),
                 NumberInputField(
                   labelText: 'Hold after exhale',
-                  controller: exhaleHoldController,
+                  controller: breathingData.exhaleHoldController,
                 ),
               ],
             ),

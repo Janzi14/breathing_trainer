@@ -1,4 +1,4 @@
-import 'package:breathing_app/data/input_controller.dart';
+import 'package:breathing_app/data/breathing_data.dart';
 import 'package:breathing_app/widgets/animation.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +11,7 @@ class BreathingRoute extends StatefulWidget {
 
 class _BreathingRouteState extends State<BreathingRoute>
     with SingleTickerProviderStateMixin {
+  BreathingData breathingData = BreathingData();
 
   @override
   void initState() {
@@ -18,10 +19,10 @@ class _BreathingRouteState extends State<BreathingRoute>
     BreathingAnimation.textController = AnimationController(
       vsync: this,
       duration: Duration(
-        seconds: int.parse(inhaleController.text),
+        seconds: int.parse(breathingData.inhaleController.text),
       ),
       reverseDuration: Duration(
-        seconds: int.parse(exhaleController.text),
+        seconds: int.parse(breathingData.exhaleController.text),
       ),
     );
     BreathingAnimation.textController.addListener(
@@ -33,7 +34,8 @@ class _BreathingRouteState extends State<BreathingRoute>
       },
     );
     BreathingAnimation.isMounted = true;
-    BreathingAnimation.runAnimation(int.parse(breathController.text));
+    BreathingAnimation.runAnimation(
+        int.parse(breathingData.breathController.text));
   }
 
   @override
