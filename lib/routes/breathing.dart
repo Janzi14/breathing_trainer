@@ -33,16 +33,16 @@ class _BreathingRouteState extends State<BreathingRoute>
         });
       },
     );
-    BreathingAnimation.isMounted = true;
+    breathingData.isMounted = true;
     BreathingAnimation.runAnimation(
         int.parse(breathingData.breathController.text));
   }
 
   @override
   void dispose() {
-    BreathingAnimation.isInhale = true;
-    BreathingAnimation.isHold = false;
-    BreathingAnimation.isMounted = false;
+    breathingData.isInhale = true;
+    breathingData.isHold = false;
+    breathingData.isMounted = false;
     BreathingAnimation.smallTextStyle = const TextStyle(fontSize: 60.0);
     BreathingAnimation.textController.dispose();
     super.dispose();
@@ -57,17 +57,27 @@ class _BreathingRouteState extends State<BreathingRoute>
           children: [
             SafeArea(
               child: Text(
-                'Breath #${BreathingAnimation.breathCount}',
+                'Breath #${breathingData.breathCount}',
                 style: Theme.of(context).textTheme.titleSmall,
               ),
             ),
-            Text(
-              BreathingAnimation.isHold
-                  ? 'HOLD'
-                  : BreathingAnimation.isInhale
-                      ? 'IN'
-                      : 'OUT',
-              style: BreathingAnimation.smallTextStyle,
+            Container(
+              width: MediaQuery.of(context).size.width - 20,
+              height: MediaQuery.of(context).size.width - 20,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+              child: Center(
+                child: Text(
+                  breathingData.isHold
+                      ? 'HOLD'
+                      : breathingData.isInhale
+                          ? 'IN'
+                          : 'OUT',
+                  style: BreathingAnimation.smallTextStyle,
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),

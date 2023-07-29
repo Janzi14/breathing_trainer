@@ -18,4 +18,9 @@ class BreathingData {
       TextEditingController(text: '0');
   final TextEditingController exhaleHoldController =
       TextEditingController(text: '0');
+
+  bool isInhale = true;
+  bool isHold = false;
+  int breathCount = 1;
+  bool isMounted = false;
 }
